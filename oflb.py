@@ -26,7 +26,6 @@ allList = [ ]
 ##########################################
 #Data center Fat Tree Network Topology
 class dcFatTreeTopo(Topo):
-26
 "Linear topology of k switches, with one host per switch."
 def __init__(self, k=2, **opts):
 """Init.
@@ -114,7 +113,7 @@ if i != len(allList)-1:
 tempCString = "'" + allList[i] + "'" + " : c0, "
 else:
 tempCString = "'" + allList[i] + "'" + " : c0 "
-28
+
 cString += tempCString
 cmapString = cString + "}"
 #print "wowzer" + cmapString
