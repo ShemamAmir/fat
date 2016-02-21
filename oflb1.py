@@ -39,44 +39,44 @@ link3 = dict(bw=1, delay='15ms', loss=0, max_queue_size=100, use_htb=True)
 # Creating an array of core switches
 # Adding them in an array so that they can be refered to later
 for i in irange(0, k-1):
-print "core switch"
-coreSwitch = self.addSwitch('c%s%s' % (i+1, 0))
+    print "core switch"
+    coreSwitch = self.addSwitch('c%s%s' % (i+1, 0))
 #coreList.insert(i, coreSwitch)
-coreList.append(coreSwitch)
+     coreList.append(coreSwitch)
 #lastSwitch = None
 for i in irange(1, k):
-print "aggregation switches"
-aggSwitch1 = self.addSwitch('a%s%s' % (i, 1))
-aggSwitch2 = self.addSwitch('a%s%s' % (i, 3))
-aggList.append(aggSwitch1)
-aggList.append(aggSwitch2)
-torSwitch1 = self.addSwitch('t%s%s' % (i, 2))
-torSwitch2 = self.addSwitch('t%s%s' % (i, 4))
-torList.append(torSwitch1)
-torList.append(torSwitch2)
-"host = self.addHost('h%s%s' % (i, i+1))"
-host11 = self.addHost('h%s%s' % (i, 1))
-host12 = self.addHost('h%s%s' % (i, 2))
-host13 = self.addHost('h%s%s' % (i, 3))
-host14 = self.addHost('h%s%s' % (i, 4))
+     print "aggregation switches"
+     aggSwitch1 = self.addSwitch('a%s%s' % (i, 1))
+     aggSwitch2 = self.addSwitch('a%s%s' % (i, 3))
+     aggList.append(aggSwitch1)
+     aggList.append(aggSwitch2)
+      torSwitch1 = self.addSwitch('t%s%s' % (i, 2))
+    torSwitch2 = self.addSwitch('t%s%s' % (i, 4))
+      torList.append(torSwitch1)
+    torList.append(torSwitch2)
+    "host = self.addHost('h%s%s' % (i, i+1))"
+   host11 = self.addHost('h%s%s' % (i, 1))
+    host12 = self.addHost('h%s%s' % (i, 2))
+    host13 = self.addHost('h%s%s' % (i, 3))
+    host14 = self.addHost('h%s%s' % (i, 4))
 #hosts1 = [ net.addHost( 'h%d' % n ) for n in 3, 4 ]
-print "connection of the hosts to the left tor switch "
-self.addLink(host11, torSwitch1, **link3)
-self.addLink(host12, torSwitch1, **link3)
-print "connection of the hosts to the right tor switch "
-self.addLink(host13, torSwitch2, **link3)
-self.addLink(host14, torSwitch2, **link3)
-print "connection of the the left tor switch to aggregation switches"
-self.addLink(torSwitch1, aggSwitch1, **link2)
+    print "connection of the hosts to the left tor switch "
+    self.addLink(host11, torSwitch1, **link3)
+    self.addLink(host12, torSwitch1, **link3)
+    print "connection of the hosts to the right tor switch "
+    self.addLink(host13, torSwitch2, **link3)
+    self.addLink(host14, torSwitch2, **link3)
+    print "connection of the the left tor switch to aggregation switches"
+     self.addLink(torSwitch1, aggSwitch1, **link2)
 
-self.addLink(torSwitch1, aggSwitch2, **link2)
-print "connection of the the right tor switch to aggregation switches"
-self.addLink(torSwitch2, aggSwitch1, **link2)
-self.addLink(torSwitch2, aggSwitch2, **link2)
-print "connect the aggregation switch to top pod core switch"
-if k == 1:
-for r in irange(0, k): #this is to go through the agg switches
-self.addLink(aggList[r], coreList[0])
+     self.addLink(torSwitch1, aggSwitch2, **link2)
+    print "connection of the the right tor switch to aggregation switches"
+    self.addLink(torSwitch2, aggSwitch1, **link2)
+    self.addLink(torSwitch2, aggSwitch2, **link2)
+    print "connect the aggregation switch to top pod core switch"
+     if k == 1:
+    for r in irange(0, k): #this is to go through the agg switches
+    self.addLink(aggList[r], coreList[0])
 else:
 for r in irange(0, (k*2)-1): #this is to go through the agg switches
 if r % 2 == 0: #if agg switch is even then connect to first half
