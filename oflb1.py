@@ -42,7 +42,7 @@ for i in irange(0, k-1):
     print "core switch"
     coreSwitch = self.addSwitch('c%s%s' % (i+1, 0))
 #coreList.insert(i, coreSwitch)
-     coreList.append(coreSwitch)
+    coreList.append(coreSwitch)
 #lastSwitch = None
 for i in irange(1, k):
      print "aggregation switches"
@@ -50,10 +50,10 @@ for i in irange(1, k):
      aggSwitch2 = self.addSwitch('a%s%s' % (i, 3))
      aggList.append(aggSwitch1)
      aggList.append(aggSwitch2)
-      torSwitch1 = self.addSwitch('t%s%s' % (i, 2))
-    torSwitch2 = self.addSwitch('t%s%s' % (i, 4))
-      torList.append(torSwitch1)
-    torList.append(torSwitch2)
+       torSwitch1 = self.addSwitch('t%s%s' % (i, 2))
+       torSwitch2 = self.addSwitch('t%s%s' % (i, 4))
+       torList.append(torSwitch1)
+       torList.append(torSwitch2)
     "host = self.addHost('h%s%s' % (i, i+1))"
    host11 = self.addHost('h%s%s' % (i, 1))
     host12 = self.addHost('h%s%s' % (i, 2))
