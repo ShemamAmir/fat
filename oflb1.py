@@ -31,7 +31,7 @@ class dcFatTreeTopo(Topo):
 #k: number of switches (and hosts)
 #hconf: host configuration options
 #lconf: link configuration options"""
-   super(dcFatTreeTopo, self).__init__(**opts)
+       super(dcFatTreeTopo, self).__init__(**opts)
 self.k = k
 link1 = dict(bw=10, delay='1ms', loss=0, max_queue_size=1000, use_htb=True)
 link2 = dict(bw=5, delay='10ms', loss=0, max_queue_size=500, use_htb=True)
