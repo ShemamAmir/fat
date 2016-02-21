@@ -26,7 +26,6 @@ allList = [ ]
 ##########################################
 #Data center Fat Tree Network Topology
 class dcFatTreeTopo(Topo):
-print "Linear topology of k switches, with one host per switch."
 def __init__(self, k=2, **opts):
 """Init.
 k: number of switches (and hosts)
